@@ -1,0 +1,390 @@
+/* =============================================
+   POS Home — home.module.css
+   Matches: products.module.css design system
+   Aesthetic: Refined Industrial / Warm Utility
+   Font: DM Sans + DM Mono
+   Theme: Off-white bg, deep slate, amber accent
+   ============================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap');
+
+/* ── Variables (mirrors products.module.css) ── */
+.container {
+  --bg: #f5f4f1;
+  --surface: #ffffff;
+  --surface-raised: #fafaf8;
+  --border: #e4e2dc;
+  --border-strong: #ccc9bf;
+  --text-primary: #1a1916;
+  --text-secondary: #6b6860;
+  --text-muted: #a09e98;
+  --accent: #c8873a;
+  --accent-light: #fdf0e2;
+  --accent-hover: #b37530;
+  --green: #2e7d52;
+  --green-bg: #eaf5ef;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.04);
+  --shadow-lg: 0 16px 48px rgba(0,0,0,0.12), 0 4px 12px rgba(0,0,0,0.06);
+  --radius: 10px;
+  --radius-lg: 16px;
+  --font: 'DM Sans', sans-serif;
+  --mono: 'DM Mono', monospace;
+
+  min-height: 100vh;
+  background-color: var(--bg);
+  font-family: var(--font);
+  color: var(--text-primary);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* ── Background Decoration ────────────────── */
+.bgGrid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.bgGlow {
+  position: absolute;
+  top: -120px;
+  right: -80px;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(200,135,58,0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ── Left Accent Bar ──────────────────────── */
+.sideAccent {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, var(--accent) 0%, transparent 100%);
+  z-index: 10;
+}
+
+/* ── Content Wrapper ──────────────────────── */
+.content {
+  position: relative;
+  width: 100%;
+  max-width: 680px;
+  padding: 48px 32px 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  z-index: 1;
+}
+
+/* ── Header ───────────────────────────────── */
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  animation: fadeUp 0.4s ease both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.logoMark {
+  width: 52px;
+  height: 52px;
+  background: var(--text-primary);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 22px;
+  box-shadow: var(--shadow-md);
+  position: relative;
+}
+
+.logoMark::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 15px;
+  background: linear-gradient(135deg, rgba(200,135,58,0.5), transparent);
+  pointer-events: none;
+}
+
+.logoInner {
+  font-family: var(--mono);
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  letter-spacing: 0.08em;
+}
+
+.headerEyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 8px;
+}
+
+.title {
+  font-size: 38px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  color: var(--text-primary);
+  margin: 0 0 10px;
+  line-height: 1.1;
+}
+
+.titleDot {
+  color: var(--accent);
+}
+
+.subtitle {
+  font-size: 15px;
+  color: var(--text-secondary);
+  margin: 0 0 20px;
+  font-weight: 400;
+}
+
+.dateChip {
+  display: inline-flex;
+  align-self: flex-start;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 5px 14px;
+  letter-spacing: 0.03em;
+}
+
+/* ── Nav Cards ────────────────────────────── */
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  animation: fadeUp 0.4s 0.08s ease both;
+}
+
+.navCard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 22px 24px;
+  text-decoration: none;
+  color: var(--text-primary);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.2s, border-color 0.2s, transform 0.15s;
+  position: relative;
+  overflow: hidden;
+}
+
+.navCard::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: transparent;
+  transition: background 0.2s;
+}
+
+.navCard:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-strong);
+  transform: translateY(-2px);
+}
+
+.navInventory:hover::before  { background: var(--accent); }
+.navBilling:hover::before    { background: var(--text-primary); }
+.navDashboard:hover::before  { background: var(--green); }
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cardIconWrap {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+
+/* Icon colors per card */
+.navInventory .cardIconWrap  { background: var(--accent-light); color: var(--accent); }
+.navBilling .cardIconWrap    { background: #ebebea; color: var(--text-primary); }
+.navDashboard .cardIconWrap  { background: var(--green-bg); color: var(--green); }
+
+.navInventory:hover .cardIconWrap  { background: rgba(200,135,58,0.18); }
+.navBilling:hover .cardIconWrap    { background: #e0dfdd; }
+.navDashboard:hover .cardIconWrap  { background: rgba(46,125,82,0.15); }
+
+.cardArrow {
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s, color 0.2s;
+}
+
+.navCard:hover .cardArrow {
+  transform: translateX(4px);
+  color: var(--text-primary);
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cardTitle {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+  letter-spacing: -0.2px;
+}
+
+.cardDesc {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.cardFooter {
+  margin-top: 2px;
+}
+
+.cardTag {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+}
+
+/* ── Quick Actions ────────────────────────── */
+.quickSection {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  animation: fadeUp 0.4s 0.16s ease both;
+}
+
+.quickLabel {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.quickActions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.quickBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 38px;
+  padding: 0 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.15s;
+  box-shadow: var(--shadow-sm);
+}
+
+.quickBtn:hover {
+  border-color: var(--text-primary);
+  color: var(--text-primary);
+  background: var(--surface-raised);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.quickBtn svg {
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+.quickBtn:hover svg {
+  opacity: 1;
+}
+
+/* ── Loading State ────────────────────────── */
+.loadingContainer {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg, #f5f4f1);
+}
+
+.loadingSpinner {
+  width: 28px;
+  height: 28px;
+  border: 2px solid #e4e2dc;
+  border-top-color: #c8873a;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Responsive ───────────────────────────── */
+@media (max-width: 640px) {
+  .content {
+    padding: 36px 18px 48px;
+    gap: 28px;
+  }
+
+  .title { font-size: 30px; }
+
+  .navCard { padding: 18px; }
+
+  .quickActions { gap: 8px; }
+
+  .quickBtn {
+    font-size: 12px;
+    padding: 0 14px;
+  }
+}

@@ -4,7 +4,8 @@ A full-featured desktop POS system built with **Next.js 16** and **Electron.js**
 
 ## 📸 Screenshots
 
-*Add screenshots here*
+<img width="1617" height="938" alt="Screenshot 2026-03-23 230057" src="https://github.com/user-attachments/assets/3b864e92-b51a-4687-b171-6c4fc246d17e" />
+
 
 ## ✨ Features
 

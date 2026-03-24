@@ -31,7 +31,6 @@ A full-featured desktop POS system built with **Next.js 16** and **Electron.js**
 ### Development
 
 ```bash
-git clone https://github.com/yourusername/pos-system.git
 cd pos-system
 npm install
 npm run dev
